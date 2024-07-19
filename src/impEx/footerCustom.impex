@@ -1,0 +1,59 @@
+$catalogVersion = Online
+$contentCatalog = electronics-spaContentCatalog
+$contentCV = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]), CatalogVersion.version[default=$catalogVersion])[default=$contentCatalog:$catalogVersion]
+$lang = en
+
+# REMOVE ContentSlotForTemplate ; $contentCV[unique = true] ; uid[unique = true]           ;
+#                               ;                           ; FooterLinksSlot-LandingPage2 ;
+#                               ;                           ; FooterFormSlot-LandingPage2  ;
+
+INSERT_UPDATE ContentSlotName ; template(uid, $contentCV)[unique = true] ; name[unique = true] ; compTypeGroup(code) ;
+                              ; LandingPage2Template                     ; FooterLinks         ; wide                ;
+                              ; LandingPage2Template                     ; FooterForm          ; wide                ;
+
+INSERT_UPDATE ContentSlot ; $contentCV[unique = true]; uid[unique = true] ; name              ;
+                          ;                          ; FooterLinksSlot    ; Footer Links Slot ;
+                          ;                          ; FooterFormSlot     ; Footer Form Slot  ;
+
+INSERT_UPDATE ContentSlotForTemplate ; $contentCV[unique = true] ; uid[unique = true]           ; position[unique = true] ; pageTemplate(uid, $contentCV)[unique = true] ; contentSlot(uid, $contentCV) ;
+                                     ;                           ; FooterLinksSlot-LandingPage2 ; FooterLinks             ; LandingPage2Template                         ; FooterLinksSlot              ;
+
+INSERT_UPDATE ContentSlotForTemplate ; $contentCV[unique = true] ; uid[unique = true]          ; position[unique = true] ; pageTemplate(uid, $contentCV)[unique = true] ; contentSlot(uid, $contentCV) ;
+                                     ;                           ; FooterFormSlot-LandingPage2 ; FooterForm              ; LandingPage2Template                         ; FooterFormSlot               ;
+
+INSERT_UPDATE CMSFlexComponent ; $contentCV[unique = true]; uid[unique = true]; name                               ; flexType    ;
+                               ;                          ; footerLinks       ; links do footer personalizado      ; footerLinks ;
+                               ;                          ; footerForm        ; formulário do footer personalizado ; footerForm  ;
+
+INSERT_UPDATE CMSParagraphComponent; $contentCV[unique = true]; uid[unique = true] ; name              ; content[lang = $lang]                          ;
+                                   ;                          ; TitleFooterLink    ; Title Footer Link ; <h3 class="title-link">Join the community</h3> ;
+
+INSERT_UPDATE CMSParagraphComponent; $contentCV[unique = true]; uid[unique = true] ; name              ; content[lang = de]                                ;
+                                   ;                          ; TitleFooterLink    ; Title Footer Link ; <h3 class="title-link">Junte-se à comunidade</h3> ;
+
+INSERT_UPDATE CMSLinkComponent     ; $contentCV[unique = true]; uid[unique = true]; url                                          ; styleClasses                                           ; name     ; linkName[lang = $lang] ;
+                                   ;                          ; linkToInstagram   ; http://localhost:4200/electronics-spa/en/USD/; btn btn-danger btn-md mx-1 btn-icon fab fa-instagram color-white ; linkInta ;                        ;
+
+INSERT_UPDATE CMSLinkComponent     ; $contentCV[unique = true]; uid[unique = true]; url                                          ; styleClasses                                          ; name     ; linkName[lang = $lang] ;
+                                   ;                          ; linkToFacebook    ; http://localhost:4200/electronics-spa/en/USD/; btn btn-danger btn-md mx-1 btn-icon fab fa-facebook color-white ; linkFace ;                        ;
+
+INSERT_UPDATE CMSLinkComponent     ; $contentCV[unique = true]; uid[unique = true]; url                                          ; styleClasses                                         ; name        ; linkName[lang = $lang] ;
+                                   ;                          ; linkToYoutube     ; http://localhost:4200/electronics-spa/en/USD/; btn btn-danger btn-md mx-1 btn-icon fab fa-youtube color-white ; linkYoutube ;                        ;
+
+INSERT_UPDATE CMSParagraphComponent; $contentCV[unique = true]; uid[unique = true] ; name              ; content[lang = $lang]                               ;
+                                   ;                          ; titleFooterForm    ; Title Footer Form ; <h3 class="title-form">Receive the latest news</h3> ;
+
+INSERT_UPDATE CMSParagraphComponent; $contentCV[unique = true]; uid[unique = true] ; name              ; content[lang = de]                                     ;
+                                   ;                          ; titleFooterForm    ; Title Footer Form ; <h3 class="title-form">Receba as últimas notícias</h3> ;
+
+
+INSERT_UPDATE CMSParagraphComponent; $contentCV[unique = true]; uid[unique = true]  ; name                  ; content[lang = $lang]                                                                                                   ;
+                                   ;                          ; paragraphFooterForm ; Paragraph Footer Form ; <p class="paragraph-form">Subscribe to our email list and receive the latest news, promotions and exclusive offers.</p> ;
+
+INSERT_UPDATE CMSParagraphComponent; $contentCV[unique = true]; uid[unique = true]  ; name                  ; content[lang = de]                                                                                                        ;
+                                   ;                          ; paragraphFooterForm ; Paragraph Footer Form ; <p class="paragraph-form">Assine nossa lista de e-mail e receba as últimas novidades, promoções e ofertas exclusivas.</p> ;
+
+
+INSERT_UPDATE ContentSlot          ; $contentCV[unique = true]; uid[unique = true] ; cmsComponents(uid, $contentCV)                                  ;
+                                   ;                          ; FooterLinksSlot    ; TitleFooterLink, linkToInstagram, linkToFacebook, linkToYoutube ;
+                                   ;                          ; FooterFormSlot     ; titleFooterForm, paragraphFooterForm, footerForm                ;

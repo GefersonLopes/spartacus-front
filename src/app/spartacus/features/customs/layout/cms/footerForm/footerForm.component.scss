@@ -1,0 +1,30 @@
+.title-link, .title-form {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.paragraph-form {
+  width: 60%;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+input {
+  width: 50%;
+  height: 40px;
+  border-radius: 0px;
+}
+
+input:focus {
+  outline: none;
+}
+
+form button {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0px;
+}
+
+

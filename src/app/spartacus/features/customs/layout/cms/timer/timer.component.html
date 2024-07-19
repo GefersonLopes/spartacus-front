@@ -1,0 +1,4 @@
+<div *ngIf="date$ | async as datetime" class="digital-clock" >
+  <h1>{{ datetime | date: 'hh:mm:ss a' }}</h1>
+</div>
+\

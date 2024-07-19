@@ -1,0 +1,80 @@
+.modal-card {
+  display: none;
+  position: absolute;
+  transform: translate(-50%, 10px);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 8px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #000;
+  font-size: 12px;
+}
+
+.openModal:hover .modal-card {
+  display: block;
+  z-index: 10;
+}
+
+.modal-header {
+  display: flex;
+}
+
+.modal-header span {
+  font-weight: 600;
+  width: 95%;
+  font-size: 14px;
+  text-align: justify;
+  margin-left: 5px;
+}
+
+.modal-header svg {
+  margin-top: 5px;
+}
+
+hr {
+  border: none;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 8px 0;
+}
+
+ul li {
+  margin-bottom: 4px;
+}
+
+.enter-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 16px 0;
+  text-decoration: none;
+}
+
+.enter-button:hover {
+  background-color: #333;
+}
+
+p {
+  margin: 0;
+}
+
+p a {
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+p a:hover {
+  text-decoration: underline;
+}

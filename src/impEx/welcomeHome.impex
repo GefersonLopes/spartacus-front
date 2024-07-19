@@ -1,0 +1,12 @@
+$catalogVersion = Online
+$contentCatalog = electronics-spaContentCatalog
+$contentCV = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]), CatalogVersion.version[default=$catalogVersion])[default=$contentCatalog:$catalogVersion]
+$lang=en
+
+
+INSERT_UPDATE CMSParagraphComponent; $contentCV[unique = true]; uid[unique = true]    ; name                                                                                               ; content[lang = $lang]                                                                               ;
+                                   ;                          ; myNewParagraph        ; My new Paragraph                                                                                   ; Hello World                                                                                         ;
+
+
+INSERT_UPDATE ContentSlot          ; $contentCV[unique = true]; uid[unique = true]    ; cmsComponents(uid, $contentCV)                                                                     ;
+                                   ;                          ; Section1Slot-Homepage ; myNewParagraph, ElectronicsHompageSplashBannerComponent, ElectronicsHompageDiscountBannerComponent ;
